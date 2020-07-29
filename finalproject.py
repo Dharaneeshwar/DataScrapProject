@@ -14,17 +14,11 @@ page_soup = soup(page_html,"html.parser")
 # gets all the details of all the graphic card products
 
 containers = page_soup.findAll("div",{"class":"caption margin-24-bottom"})
-#print(len(containers))
-#fo=open("scrapped_data.txt","w")
 para_list=[]
 fo=open('url no 1.txt','a') 
 for container in containers:
-    
-    brand=container.text
-    #print(brand,'\n')
-    #fo=open('webscrap.txt','a') 
+    brand=container.text 
     para_list.append(brand)
-    #fo.write(brand)
 fo.writelines(str(para_list))
 fo.close()
 
@@ -71,11 +65,9 @@ para_list1=[]
 para_list2=[]
 fo=open('url no 2.txt','a') 
 for i in containers.findAll('p'):
-    #print(i.text,'\n\n')
     para_list1.append(i.text)
 fo.writelines(str(para_list1))
 for j in containers.findAll('ol'):
-    #print(j.text,'\n')
     para_list2.append(j.text)
 fo.writelines(str(para_list2))
 fo.close()
@@ -242,5 +234,5 @@ workbook.close()
 print('Pasting scraped data into files.....\n')
 print('Creating Excel Worksheets......\n')
 print('Saving required documents....\n')
-print('Go to CODE location to view the rendered documents and reports\n')
+print('Go to CODE directory to view the rendered documents and reports\n')
 print('THANKS FOR USING THE SERVICE')
